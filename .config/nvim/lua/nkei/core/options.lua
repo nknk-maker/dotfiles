@@ -9,7 +9,7 @@ opt.number = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
-opt.autoindent = true
+opt.smartindent = true
 
 opt.wrap = false
 
@@ -30,8 +30,6 @@ opt.backspace = "indent,eol,start"
 -- clipboard
 opt.clipboard:append("unnamedplus")
 
-
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
-
