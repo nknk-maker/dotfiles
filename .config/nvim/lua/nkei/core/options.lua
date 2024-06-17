@@ -21,8 +21,10 @@ opt.cursorline = true
 
 -- turn on termguicolors
 opt.termguicolors = true
-opt.background = "dark"
+--opt.background = "dark"
 opt.signcolumn = "yes"
+
+-- 不透明度を設定
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -33,3 +35,5 @@ opt.clipboard:append("unnamedplus")
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
+
+
