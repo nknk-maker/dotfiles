@@ -37,3 +37,12 @@ opt.splitright = true
 opt.splitbelow = true
 
 
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = {"*.cpp", "*.c", "*.lua", "*.config", "*.json", "*.sh"},
+    command = 'silent !tmux send-keys -t 1 "cd %:p:h" C-m'
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = {"*.lua"},
+    command = "setlocal sw=2 ts=2 et"
+})
