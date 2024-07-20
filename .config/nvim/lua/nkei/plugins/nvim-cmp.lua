@@ -1,6 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
+  version = "2.*",
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
@@ -51,13 +52,20 @@ return {
         { name = "path" }, -- file system paths
       }),
 
-      -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
+        expandable_indicator = true,
+        fields = {"abbr", "kind", "menu"},
         format = lspkind.cmp_format({
-          maxwidth = 50,
-          ellipsis_char = "...",
-        }),
-      },
+            mode = "symbol_text",
+            maxwidth = 25,
+            ellipsis_char = '...',
+            show_labelDetails = true,
+            before = function(entry, vim_item)
+              return vim_item
+            end,
+          })
+      }
     })
+      -- configure lspkind for vs-code like pictograms in completion menu
   end,
 }

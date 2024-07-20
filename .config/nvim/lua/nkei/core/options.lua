@@ -46,3 +46,22 @@ vim.api.nvim_create_autocmd("BufEnter", {
     pattern = {"*.lua"},
     command = "setlocal sw=2 ts=2 et"
 })
+
+vim.diagnostic.config({
+  virtual_text = true
+})
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {
+    border = "single", -- "shadow" , "none", "rounded"
+    -- border = border
+    -- width = 100,
+  }
+)
+
+opt.conceallevel=2
