@@ -11,7 +11,8 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 
-opt.wrap = false
+opt.wrap = true
+opt.swapfile = false
 
 --search settings
 opt.ignorecase = true
@@ -52,8 +53,6 @@ vim.diagnostic.config({
 })
 
 -- Show line diagnostics automatically in hover window
-vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover,

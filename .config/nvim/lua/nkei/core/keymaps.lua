@@ -19,3 +19,5 @@ keymap.set("n", "<A-l>", "<cmd>bnext<CR>", { desc = "go to next buffer "})
 -- save file to clipboard
 keymap.set("n", "<leader>c", "<cmd>silent !cat % | clip.exe<CR>", {noremap = true})
 
+keymap.set("n", "k", "gk", { noremap = true })
+keymap.set("n", "j", "gj", { noremap = true })

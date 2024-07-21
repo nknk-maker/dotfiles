@@ -26,8 +26,8 @@ return {
       --   path = "~/vaults/work",
       -- },
       {
-        name = "Obsidian Vault",
-        path = "C:\\Users\\keita\\OneDrive\\ドキュメント\\Obsidian Vault"
+        name = "Obsidian_Vault",
+        path = "C:/Users/keita/Obsidian_Vault"
       }
     },
 
