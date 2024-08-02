@@ -3,7 +3,7 @@ palette = "catppuccin_macchiato"
 
 [character]
 # Note the use of Catppuccin color 'maroon'
-success_symbol = "[[](green) ❯]()"
+success_symbol = "[[](green) ❯](green)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 
@@ -11,8 +11,8 @@ vimcmd_symbol = "[❮](green)"
 truncation_length = 4
 # Catppuccin 'lavender'
 style = "bold lavender"
-
 # palette tables should be last in the config ⚓️
+
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
