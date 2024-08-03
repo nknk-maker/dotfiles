@@ -119,6 +119,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init bash)"
 alias lg='lazygit'
 
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/home/nkei/dotfiles/.scripts:$PATH"
 alias ojt='oj t -c "./a.out"'
 alias ojs='oj s main.cpp -y'
+
