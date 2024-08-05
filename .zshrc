@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -32,9 +25,23 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # zinit settings
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
+# コマンドプロンプトをいい感じにする
+zinit ice depth=1; zinit load romkatv/powerlevel10k
+# 補完の強化
+zinit ice wait"1"
+zinit load zsh-users/zsh-completions
+# C-rでコマンド履歴から補完
+zinit ice wait"3"
+zinit load zdharma-continum/history-search-multi-word
+# C-lでインクリメンタル補完
+zinit ice wait"4"
+zinit load zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+bindkey '^l' autosuggest-accept
+#tmux autostart
+zinit ice pick'init.zsh'
+zinit load laggardkernel/zsh-tmux
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
