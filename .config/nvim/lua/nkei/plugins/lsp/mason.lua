@@ -18,5 +18,19 @@ return {
         },
       },
     })
+
+    local mason_lspconfig = require("mason-lspconfig")
+
+    mason_lspconfig.setup({
+      ensure_installed = {
+        "clangd",
+        "lua_ls",
+        "marksman",
+        "zk",
+        "ltex",
+        "texlab",
+        "pyright"
+      }
+    })
   end,
 }
