@@ -16,19 +16,7 @@ export PATH="/home/nkei/dotfiles/.scripts:$PATH"
 alias ojt='oj t -c "./a.out"'
 alias ojs='oj s main.cpp -y'
 
-autoload -U compinit
-compinit
 zstyle ':completion:*:default' menu select=2
-
-# 名前で色を付けるようにする
-autoload colors
-colors
-
-# LS_COLORSを設定しておく
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-
-# ファイル補完候補に色を付ける
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -44,10 +32,12 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # zinit settings
-zinit ice wait; zinit light zsh-users/zsh-syntax-highlighting
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit ice wait; zinit light zsh-users/zsh-autosuggestions
 zinit ice wait; zinit light zsh-users/zsh-completions
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
