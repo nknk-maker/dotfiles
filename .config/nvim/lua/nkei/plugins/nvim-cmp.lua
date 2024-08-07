@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = {"InsertEnter"},
+  -- event = {"InsertEnter"},
   version = "2.*",
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
@@ -8,9 +8,7 @@ return {
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
-      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
       -- install jsregexp (optional!).
-      build = "make install_jsregexp",
     },
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
@@ -23,7 +21,6 @@ return {
 
     local lspkind = require("lspkind")
 
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
@@ -40,8 +37,16 @@ return {
         ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<leader>"] = cmp.mapping(function (fallback)
+            if luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
       }),
+
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp"},
@@ -61,9 +66,8 @@ return {
             before = function(entry, vim_item)
               return vim_item
             end,
-          })
+        })
       }
     })
-      -- configure lspkind for vs-code like pictograms in completion menu
   end,
 }

@@ -49,7 +49,7 @@ zinit load zdharma-continum/history-search-multi-word
 # <leader>lでインクリメンタル補完
 zinit ice wait"0"
 zinit load zsh-users/zsh-autosuggestions
-bindkey ' l' autosuggest-accept
+bindkey 'L' autosuggest-accept
 # now I'm setting this function off; start with tmux
 # zinit ice pick'init.zsh'
 # zinit light laggardkernel/zsh-tmux
