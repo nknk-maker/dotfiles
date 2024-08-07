@@ -1,21 +1,26 @@
 local ls = require("luasnip")
-local snippet = ls.snippet
-local insert = ls.insert_node
-local text = ls.text_node
+local s= ls.snippet
+local i= ls.insert_node
+local t= ls.text_node
 local c = ls.choice_node
 local f = ls.function_node
 
 ls.add_snippets("cpp", {
-  snippet("yes", { text("cout << Yes << endl;") }),
-  snippet("no", { text("cout << No << endl;") }),
-  snippet("For", {
-    text("for (int i = "),
-    insert(2, "N"),
-    text("; i < "),
-    insert(1, "0"),
-    text("; i++) {", ""),
-    insert(0),
-    text({"", "}"})
-  })
+  s("ye", { t({'cout << "Yes" << endl;', "return 0;"}) }),
+  s("y", { t('cout << "Yes" << endl;') }),
+  s("ne", { t({'cout << "No" << endl;', "return 0;"}) }),
+  s("ne", { t('cout << "No" << endl;') }),
+  s("f", {
+    t("for (int i = 0; i < "),
+    i(1, "N"),
+    t({"; i++) {", ""}),
+    i(0),
+    t({"", "}"})
+  }),
+  s("cout", {
+    t("cout << "),
+    i(1),
+    t("<< endl;")
+  }),
 })
 

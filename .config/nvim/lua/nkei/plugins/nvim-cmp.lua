@@ -11,7 +11,6 @@ return {
       -- install jsregexp (optional!).
     },
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
-    "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
   },
   config = function()
@@ -21,7 +20,7 @@ return {
 
     local lspkind = require("lspkind")
 
-    require("luasnip.loaders.from_vscode").lazy_load()
+    -- require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
       completion = {
@@ -49,8 +48,8 @@ return {
 
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp"},
         { name = "luasnip" }, -- snippets
+        { name = "nvim_lsp"},
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
       }),
